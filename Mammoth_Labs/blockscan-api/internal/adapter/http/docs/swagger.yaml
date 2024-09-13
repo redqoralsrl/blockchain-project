@@ -1,0 +1,1234 @@
+basePath: /api/v1
+definitions:
+  ? blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_staking_ValidatorByAccountData
+  : properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_blockchain_gmmt_staking.ValidatorByAccountData'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_swap_Swap:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_blockchain_gmmt_swap.Swap'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_chain_Chain:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_chain.Chain'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  ? blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_contract_GetContractWalletNFTsByCollectionData
+  : properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_contract.GetContractWalletNFTsByCollectionData'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  ? blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_log_GetLogNFTsByWalletData
+  : properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_log.GetLogNFTsByWalletData'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_nft_GetNftData:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_nft.GetNftData'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  ? blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_transaction_GetTransactionData
+  : properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_transaction.GetTransactionData'
+        type: array
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_blockchain_gmmt_staking_Staking:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/blockscan-go_internal_core_blockchain_gmmt_staking.Staking'
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_chain_Chain:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/blockscan-go_internal_core_domain_chain.Chain'
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  ? blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_contract_GetContractCollectionNFTsForWalletData
+  : properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/blockscan-go_internal_core_domain_contract.GetContractCollectionNFTsForWalletData'
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  ? blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_crypto_currency_GetCryptoCurrencyData
+  : properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/blockscan-go_internal_core_domain_crypto_currency.GetCryptoCurrencyData'
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_nft_GetNFtDetailData:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/blockscan-go_internal_core_domain_nft.GetNFtDetailData'
+      error:
+        type: string
+      message:
+        $ref: '#/definitions/blockscan-go_internal_core_common_utils.ErrorType'
+    type: object
+  blockscan-go_internal_core_blockchain_gmmt_staking.Staking:
+    properties:
+      apr:
+        type: string
+      bonded_coin:
+        type: string
+      list:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_blockchain_gmmt_staking.Validator'
+        type: array
+    type: object
+  blockscan-go_internal_core_blockchain_gmmt_staking.Validator:
+    properties:
+      address:
+        items:
+          type: integer
+        type: array
+      changed_at:
+        type: integer
+      claimed_at:
+        type: integer
+      commission_rate:
+        type: integer
+      jailed_before:
+        type: integer
+      slashes_count:
+        type: integer
+      status:
+        type: integer
+      total_delegated:
+        type: string
+      total_rewards:
+        type: string
+    type: object
+  blockscan-go_internal_core_blockchain_gmmt_staking.ValidatorByAccountData:
+    properties:
+      claimable_asset:
+        type: string
+      commission_rate:
+        type: integer
+      delegation:
+        type: string
+      jailed_before:
+        type: integer
+      owner_address:
+        items:
+          type: integer
+        type: array
+      pending_asset:
+        type: string
+      slashes_count:
+        type: integer
+      status:
+        type: integer
+      total_delegated:
+        type: string
+      validator_address:
+        items:
+          type: integer
+        type: array
+    type: object
+  blockscan-go_internal_core_blockchain_gmmt_swap.Swap:
+    properties:
+      index:
+        type: integer
+      liquidity:
+        type: string
+      pair_address:
+        items:
+          type: integer
+        type: array
+      size_up:
+        type: boolean
+      token_0_address:
+        items:
+          type: integer
+        type: array
+      token_0_decimals:
+        type: integer
+      token_0_get_reserves:
+        type: string
+      token_0_name:
+        type: string
+      token_0_symbol:
+        type: string
+      token_1_address:
+        items:
+          type: integer
+        type: array
+      token_1_decimals:
+        type: integer
+      token_1_get_reserves:
+        type: string
+      token_1_name:
+        type: string
+      token_1_symbol:
+        type: string
+    type: object
+  blockscan-go_internal_core_common_utils.ErrorType:
+    enum:
+    - No data found
+    - Syntax
+    - Duplicate
+    - Invalid sql statement
+    - Bad connection
+    - Invalid character
+    - Foreign key
+    - Check violation
+    - Success
+    - Fail
+    - Not found
+    - Invalid input
+    - Database
+    - Internal
+    type: string
+    x-enum-varnames:
+    - NoDataFound
+    - SyntaxError
+    - DuplicateError
+    - InvalidSQLStatementError
+    - BadConnectionError
+    - JsonParseError
+    - ForeignKeyError
+    - CheckViolationError
+    - Success
+    - Fail
+    - NotFound
+    - InvalidInput
+    - DatabaseError
+    - InternalError
+  blockscan-go_internal_core_domain_chain.Chain:
+    properties:
+      chain_id:
+        type: integer
+      contract_address:
+        type: string
+      decimals:
+        type: integer
+      id:
+        type: integer
+      image_url:
+        type: string
+      name:
+        type: string
+      scan_site:
+        type: string
+      site:
+        type: string
+      symbol:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_contract.ErcList:
+    properties:
+      amount:
+        type: string
+      aws_image_url:
+        type: string
+      description:
+        type: string
+      image_url:
+        type: string
+      name:
+        type: string
+      token_id:
+        type: string
+      url:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_contract.GetContractCollectionNFTsForWalletData:
+    properties:
+      aws_banner_image:
+        type: string
+      aws_logo_image:
+        type: string
+      chain_id:
+        type: integer
+      description:
+        type: string
+      erc_list:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_contract.ErcList'
+        type: array
+      erc_type:
+        type: string
+      hash:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      symbol:
+        type: string
+      wallet_address:
+        type: string
+      wallet_nickname:
+        type: string
+      wallet_profile:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_contract.GetContractWalletNFTsByCollectionData:
+    properties:
+      aws_banner_image:
+        type: string
+      aws_logo_image:
+        type: string
+      chain_id:
+        type: integer
+      description:
+        type: string
+      erc_list:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_contract.ErcList'
+        type: array
+      erc_type:
+        type: string
+      hash:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      symbol:
+        type: string
+      tokens_amount:
+        type: string
+      unique_tokens_count:
+        type: string
+      wallet_address:
+        type: string
+      wallet_nickname:
+        type: string
+      wallet_profile:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_crypto_currency.GetCryptoCurrencyData:
+    properties:
+      bnb_price:
+        type: string
+      eth_price:
+        type: string
+      gmmt_price:
+        type: string
+      matic_price:
+        type: string
+      mmt_price:
+        type: string
+      timestamp:
+        type: integer
+    type: object
+  blockscan-go_internal_core_domain_log.GetLogNFTsByWalletData:
+    properties:
+      address:
+        type: string
+      block_hash:
+        type: string
+      block_number:
+        type: string
+      chain_id:
+        type: integer
+      dapp:
+        type: string
+      erc1155_token_id:
+        items:
+          type: string
+        type: array
+      erc1155_url:
+        items:
+          type: string
+        type: array
+      erc1155_value:
+        items:
+          type: string
+        type: array
+      from_address:
+        type: string
+      function:
+        type: string
+      gas:
+        type: string
+      gas_price:
+        type: string
+      gas_used:
+        type: string
+      market_info_array:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_log.MarketInfo'
+        type: array
+      name:
+        type: string
+      nft_volume_array:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_log.NftVolumeData'
+        type: array
+      symbol:
+        type: string
+      timestamp:
+        type: integer
+      to_address:
+        type: string
+      token_id:
+        type: string
+      topics:
+        items:
+          type: string
+        type: array
+      trade_nft_volume:
+        type: string
+      trade_nft_volume_contract:
+        type: string
+      trade_nft_volume_symbol:
+        type: string
+      transaction_hash:
+        type: string
+      type:
+        type: integer
+      url:
+        type: string
+      value:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_log.GetSearchByWalletInput:
+    properties:
+      chain_id:
+        type: integer
+      date:
+        enum:
+        - all
+        - 7D
+        - 30D
+        - 1Y
+        type: string
+      skip:
+        type: integer
+      take:
+        type: integer
+      type:
+        enum:
+        - all
+        - mint
+        - transfer
+        - sale
+        - burn
+        type: string
+      walletAddress:
+        type: string
+    required:
+    - chain_id
+    - date
+    - take
+    - type
+    - walletAddress
+    type: object
+  blockscan-go_internal_core_domain_log.MarketInfo:
+    properties:
+      buyer:
+        type: string
+      chain_id:
+        type: integer
+      collection:
+        type: string
+      seller:
+        type: string
+      transaction_hash:
+        type: string
+      volume:
+        type: string
+      volume_contract_address:
+        type: string
+      volume_symbol:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_log.NftVolumeData:
+    properties:
+      chain_id:
+        type: integer
+      contract:
+        type: string
+      event:
+        type: string
+      from_address:
+        type: string
+      symbol:
+        type: string
+      timestamp:
+        type: integer
+      to_address:
+        type: string
+      transaction_hash:
+        type: string
+      value:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_nft.Attributes:
+    properties:
+      trait_type:
+        type: string
+      value:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_nft.AttributesPercent:
+    properties:
+      percentage:
+        type: number
+      specific_count:
+        type: integer
+      total_count:
+        type: integer
+      trait_type:
+        type: string
+      value:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_nft.GetNFtDetailData:
+    properties:
+      amount:
+        type: string
+      attributes_array:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_nft.AttributesPercent'
+        type: array
+      aws_banner_image:
+        type: string
+      aws_logo_image:
+        type: string
+      chain_id:
+        type: integer
+      contract_description:
+        type: string
+      contract_hash:
+        type: string
+      contract_id:
+        type: integer
+      contract_name:
+        type: string
+      contract_symbol:
+        type: string
+      id:
+        type: integer
+      image_url:
+        type: string
+      nft_description:
+        type: string
+      nft_name:
+        type: string
+      token_id:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_nft.GetNftData:
+    properties:
+      amount:
+        type: string
+      attributes_array:
+        items:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_nft.Attributes'
+        type: array
+      aws_banner_image:
+        type: string
+      aws_logo_image:
+        type: string
+      chain_id:
+        type: integer
+      contract_description:
+        type: string
+      contract_hash:
+        type: string
+      contract_id:
+        type: integer
+      contract_name:
+        type: string
+      contract_symbol:
+        type: string
+      id:
+        type: integer
+      image_url:
+        type: string
+      nft_description:
+        type: string
+      nft_name:
+        type: string
+      token_id:
+        type: string
+      type:
+        type: string
+      url:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_transaction.GetTransactionData:
+    properties:
+      chain_id:
+        type: integer
+      contract_address:
+        type: string
+      decimals:
+        type: string
+      from:
+        type: string
+      gas:
+        type: string
+      gas_price:
+        type: string
+      gas_used:
+        type: string
+      hash:
+        type: string
+      info:
+        type: string
+      status:
+        type: string
+      symbol:
+        type: string
+      timestamp:
+        type: integer
+      to:
+        type: string
+      transaction_fee:
+        type: string
+      type:
+        type: string
+      value:
+        type: string
+    type: object
+  blockscan-go_internal_core_domain_transaction.GetTransactionInput:
+    properties:
+      chain_id:
+        type: integer
+      chain_type:
+        enum:
+        - coin
+        - token
+        type: string
+      contract_address:
+        type: string
+      order_by:
+        enum:
+        - asc
+        - desc
+        type: string
+      skip:
+        type: integer
+      take:
+        minimum: 0
+        type: integer
+      type:
+        enum:
+        - send
+        - received
+        type: string
+      wallet_address:
+        type: string
+    required:
+    - chain_id
+    - wallet_address
+    type: object
+host: tracking.gmmtchain.io
+info:
+  contact: {}
+  description: API Backend Template
+  license:
+    name: Go Echo
+  title: blockscan-go API
+  version: "1.0"
+paths:
+  /chain/{chain_id}:
+    get:
+      description: GetChain / chain 관련 정보를 반환하는 API / *공용
+      operationId: GetChain
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: path
+        name: chain_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_chain_Chain'
+      summary: Get Chain / *공용
+      tags:
+      - Chain
+  /chain/token/{chain_id}/{contract_address}:
+    get:
+      description: GetToken / token 관련 정보를 반환하는 API / *공용
+      operationId: GetToken
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: path
+        name: chain_id
+        required: true
+        type: integer
+      - description: 컨트랙트 주소
+        in: path
+        name: contract_address
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_chain_Chain'
+      summary: Get Token / *공용
+      tags:
+      - Chain
+  /chain/tokens/{chain_id}:
+    get:
+      description: GetTokens / token 관련 정보들을 반환하는 API / *공용
+      operationId: GetTokens
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: path
+        name: chain_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_chain_Chain'
+      summary: Get Tokens / *공용
+      tags:
+      - Chain
+  /coin/price:
+    get:
+      description: Get / 코인 가격 받아오는 API / *공용
+      operationId: GetPrice
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_crypto_currency_GetCryptoCurrencyData'
+      summary: Get coins price
+      tags:
+      - Crypto Currency
+  /contract/{hash}/wallet/nft/{wallet_address}:
+    get:
+      description: ContractGetCollectionNFTsForWallet / 해당 컨트랙트에 월렛이 보유한 NFT들을 반환하는
+        API / *공용
+      operationId: ContractGetCollectionNFTsForWallet
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 컨트랙트 주소
+        in: path
+        name: hash
+        required: true
+        type: string
+      - description: 지갑주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      - description: 가져올 아이템 수 최대 100
+        in: query
+        name: take
+        required: true
+        type: integer
+      - description: 건너뛸 아이템 수 (옵션) 기본 0
+        in: query
+        name: skip
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_contract_GetContractCollectionNFTsForWalletData'
+      summary: Get collection nfts for wallet / *공용
+      tags:
+      - Contract
+  /contract/wallet/nft/{wallet_address}:
+    get:
+      description: ContractGetWalletNFTsByCollection / 월렛이 보유한 NFT들을 컬렉션 별로 분류해서 반환하는
+        API / *공용
+      operationId: ContractGetWalletNFTsByCollection
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 지갑주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      - description: 가져올 아이템 수 최대 100
+        in: query
+        name: take
+        required: true
+        type: integer
+      - description: 건너뛸 아이템 수 (옵션) 기본 0
+        in: query
+        name: skip
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_contract_GetContractWalletNFTsByCollectionData'
+      summary: Get wallet nfts by collection / *공용
+      tags:
+      - Contract
+  /giant_mammoth/staking/info/{chain_id}/{wallet_address}:
+    get:
+      description: Get Staking By Account / 해당 지갑에 관련된 staking 정보를 반환하는 API / *공용
+      operationId: GetStakingByAccount
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: path
+        name: chain_id
+        required: true
+        type: integer
+      - description: 지갑주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_staking_ValidatorByAccountData'
+      summary: Get Staking By Account / *공용
+      tags:
+      - GiantMammoth
+  /giant_mammoth/staking/list/{chain_id}:
+    get:
+      description: Get Staking list / Gmmt staking 정보를 반환하는 API / *공용
+      operationId: GetStakingList
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: path
+        name: chain_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_blockchain_gmmt_staking_Staking'
+      summary: Get Staking list / *공용
+      tags:
+      - GiantMammoth
+  /giant_mammoth/swap/list/{chain_id}:
+    get:
+      description: Get Swap Pair List / 아이보리 스왑 pair list를 반환하는 API / *공용
+      operationId: GetSwapPairList
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: path
+        name: chain_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_swap_Swap'
+      summary: Get Swap Pair List / *공용
+      tags:
+      - GiantMammoth
+  /log/nft/activities/{wallet_address}:
+    get:
+      description: GetByWallet / 해당 지갑에서 발생한 NFT 로그 기록 가져오는 API / *공용
+      operationId: LogGetNFTsByWallet
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 월렛주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      - description: 가져올 아이템 수 최대 100
+        in: query
+        name: take
+        required: true
+        type: integer
+      - description: 건너뛸 아이템 수 (옵션) 기본 0
+        in: query
+        name: skip
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_log_GetLogNFTsByWalletData'
+      summary: Get NFTs by wallet / *공용
+      tags:
+      - Log
+    post:
+      description: LogGetSearchNFTsByWallet / 해당 지갑에서 발생한 NFT 로그 날짜, 종류에 따라 가져오는 API
+        / *공용(gmwallet, edem)
+      operationId: LogGetSearchNFTsByWallet
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 월렛주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: Request body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_log.GetSearchByWalletInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_log_GetLogNFTsByWalletData'
+      summary: Get NFT logs by wallet / *공용
+      tags:
+      - Log
+  /nft/{wallet_address}:
+    get:
+      description: NftGet / 월렛이 보유한 NFT들을 반환하는 API / *공용
+      operationId: NftGet
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 지갑주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      - description: 가져올 아이템 수 최대 100
+        in: query
+        name: take
+        required: true
+        type: integer
+      - description: 건너뛸 아이템 수 (옵션) 기본 0
+        in: query
+        name: skip
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_nft_GetNftData'
+      summary: Get Nfts by wallet / *공용
+      tags:
+      - Nft
+  /nft/detail/{hash}/{token_id}:
+    get:
+      description: NftGetDetail / NFT 상세정보를 반환하는 API / *공용
+      operationId: NftGetDetail
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 컨트랙트 주소
+        in: path
+        name: hash
+        required: true
+        type: string
+      - description: 토큰 아이디
+        in: path
+        name: token_id
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_nft_GetNFtDetailData'
+      summary: Get Nft Detail / *공용
+      tags:
+      - Nft
+  /nft/detail/{hash}/{token_id}/{wallet_address}:
+    get:
+      description: NftGetDetailOfWallet / 지갑이 보유한 NFT 상세정보를 반환하는 API / *공용
+      operationId: NftGetDetailOfWallet
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 컨트랙트 주소
+        in: path
+        name: hash
+        required: true
+        type: string
+      - description: 토큰 아이디
+        in: path
+        name: token_id
+        required: true
+        type: string
+      - description: 지갑주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: 블록체인 체인넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_nft_GetNFtDetailData'
+      summary: Get Nft Detail of Wallet / *공용
+      tags:
+      - Nft
+  /transaction:
+    post:
+      description: GetTransaction / 해당 지갑에서 코인/토큰 전송내역 가져오는 API / *공용
+      operationId: GetTransaction
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: Request body
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/blockscan-go_internal_core_domain_transaction.GetTransactionInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_transaction_GetTransactionData'
+      summary: get coin, token transactions / *공용
+      tags:
+      - Transaction
+  /transaction/recent/{wallet_address}:
+    get:
+      description: GetAllTransaction / 해당 지갑에서 코인/토큰 최근 전송내역 가져오는 API / *공용
+      operationId: GetAllTransaction
+      parameters:
+      - description: x api key
+        in: header
+        name: X-Api-Key
+        required: true
+        type: string
+      - description: 지갑주소
+        in: path
+        name: wallet_address
+        required: true
+        type: string
+      - description: 블록체인 넘버
+        in: query
+        name: chain_id
+        required: true
+        type: integer
+      - description: 가져올 아이템 수 최대 100
+        in: query
+        name: take
+        required: true
+        type: integer
+      - description: 건너뛸 아이템 수 (옵션) 기본 0
+        in: query
+        name: skip
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_transaction_GetTransactionData'
+      summary: get coin,token recent transactions / *공용
+      tags:
+      - Transaction
+swagger: "2.0"

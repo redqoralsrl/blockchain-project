@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/gmwallet-connect-go
+    overwrite: yes
+
+file_exists_behavior: OVERWRITE
+
+permissions:
+  - object: /home/ubuntu/gmwallet-connect-go
+    pattern: '**'
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+
+hooks:
+  BeforeInstall:
+    - location: before-deploy.sh
+      timeout: 800000
+      runas: root
+  AfterInstall:
+    - location: after-deploy.sh
+      timeout: 800000
+      runas: ubuntu

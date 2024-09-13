@@ -1,0 +1,58 @@
+name: Deploy Go Tracking Application
+
+on:
+  push:
+    branches:
+      - tracking
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+      - name: Create .env file
+        run: |
+          echo "STAGE=${{ secrets.STAGE }}" >> .env
+          echo "API_PORT=${{ secrets.API_PORT }}" >> .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_PORT=${{ secrets.DB_PORT }}" >> .env
+          echo "REDIS_HOST=${{ secrets.REDIS_HOST }}" >> .env
+          echo "REDIS_PORT=${{ secrets.REDIS_PORT }}" >> .env
+          echo "JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }}" >> .env
+          echo "X_API_KEY=${{ secrets.X_API_KEY }}" >> .env
+          echo "X_ADMIN_API_KEY=${{ secrets.X_ADMIN_API_KEY }}" >> .env
+          echo "COIN_API_KEY=${{ secrets.COIN_API_KEY }}" >> .env
+          echo "NETWORK=${{ secrets.NETWORK }}" >> .env
+          echo "GIANT_NAME=${{ secrets.GIANT_NAME }}" >> .env
+          echo "GIANT_ENDPOINT=${{ secrets.GIANT_ENDPOINT }}" >> .env
+          echo "GIANT_CHAIN_ID=${{ secrets.GIANT_CHAIN_ID }}" >> .env
+          echo "GIANT_CHAIN_SYMBOL=${{ secrets.GIANT_CHAIN_SYMBOL }}" >> .env
+          echo "GIANT_WRAPPED_TOKEN=${{ secrets.GIANT_WRAPPED_TOKEN }}" >> .env
+          echo "GIANT_WRAPPED_SYMBOL=${{ secrets.GIANT_WRAPPED_SYMBOL }}" >> .env
+          echo "TESTNET_GIANT_ENDPOINT=${{ secrets.TESTNET_GIANT_ENDPOINT }}" >> .env
+          echo "TESTNET_GIANT_CHAIN_ID=${{ secrets.TESTNET_GIANT_CHAIN_ID }}" >> .env
+          echo "TESTNET_GIANT_CHAIN_SYMBOL=${{ secrets.TESTNET_GIANT_CHAIN_SYMBOL }}" >> .env
+          echo "TESTNET_GIANT_WRAPPED_SYMBOL=${{ secrets.TESTNET_GIANT_WRAPPED_SYMBOL }}" >> .env
+          echo "TESTNET_GIANT_WRAPPED_TOKEN=${{ secrets.TESTNET_GIANT_WRAPPED_TOKEN }}" >> .env
+          echo "CRYPTONIANS_PRIVATE_KEY=${{ secrets.CRYPTONIANS_PRIVATE_KEY }}" >> .env
+          echo "CRYPTONIANS_MNEMONIC=${{ secrets.CRYPTONIANS_MNEMONIC }}" >> .env
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build docker image
+        run: docker build -t devmmtchain/blockscan-go -f Dockerfile.prod .
+      - name: Push image to docker hub
+        run: docker push devmmtchain/blockscan-go:latest
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull docker image
+        run: docker pull devmmtchain/blockscan-go:latest
+      - name: Delete old container
+        run: docker rm -f blockscan-go-app
+      - name: Run docker container
+        run: docker run --env-file /home/ubuntu/.env -d -p 8080:8080 --name blockscan-go-app devmmtchain/blockscan-go

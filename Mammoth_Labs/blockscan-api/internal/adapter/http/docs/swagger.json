@@ -1,0 +1,1822 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Backend Template",
+        "title": "blockscan-go API",
+        "contact": {},
+        "license": {
+            "name": "Go Echo"
+        },
+        "version": "1.0"
+    },
+    "host": "tracking.gmmtchain.io",
+    "basePath": "/api/v1",
+    "paths": {
+        "/chain/token/{chain_id}/{contract_address}": {
+            "get": {
+                "description": "GetToken / token 관련 정보를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chain"
+                ],
+                "summary": "Get Token / *공용",
+                "operationId": "GetToken",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "컨트랙트 주소",
+                        "name": "contract_address",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_chain_Chain"
+                        }
+                    }
+                }
+            }
+        },
+        "/chain/tokens/{chain_id}": {
+            "get": {
+                "description": "GetTokens / token 관련 정보들을 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chain"
+                ],
+                "summary": "Get Tokens / *공용",
+                "operationId": "GetTokens",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_chain_Chain"
+                        }
+                    }
+                }
+            }
+        },
+        "/chain/{chain_id}": {
+            "get": {
+                "description": "GetChain / chain 관련 정보를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Chain"
+                ],
+                "summary": "Get Chain / *공용",
+                "operationId": "GetChain",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_chain_Chain"
+                        }
+                    }
+                }
+            }
+        },
+        "/coin/price": {
+            "get": {
+                "description": "Get / 코인 가격 받아오는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Crypto Currency"
+                ],
+                "summary": "Get coins price",
+                "operationId": "GetPrice",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_crypto_currency_GetCryptoCurrencyData"
+                        }
+                    }
+                }
+            }
+        },
+        "/contract/wallet/nft/{wallet_address}": {
+            "get": {
+                "description": "ContractGetWalletNFTsByCollection / 월렛이 보유한 NFT들을 컬렉션 별로 분류해서 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Contract"
+                ],
+                "summary": "Get wallet nfts by collection / *공용",
+                "operationId": "ContractGetWalletNFTsByCollection",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지갑주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "가져올 아이템 수 최대 100",
+                        "name": "take",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "건너뛸 아이템 수 (옵션) 기본 0",
+                        "name": "skip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_contract_GetContractWalletNFTsByCollectionData"
+                        }
+                    }
+                }
+            }
+        },
+        "/contract/{hash}/wallet/nft/{wallet_address}": {
+            "get": {
+                "description": "ContractGetCollectionNFTsForWallet / 해당 컨트랙트에 월렛이 보유한 NFT들을 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Contract"
+                ],
+                "summary": "Get collection nfts for wallet / *공용",
+                "operationId": "ContractGetCollectionNFTsForWallet",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "컨트랙트 주소",
+                        "name": "hash",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지갑주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "가져올 아이템 수 최대 100",
+                        "name": "take",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "건너뛸 아이템 수 (옵션) 기본 0",
+                        "name": "skip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_contract_GetContractCollectionNFTsForWalletData"
+                        }
+                    }
+                }
+            }
+        },
+        "/giant_mammoth/staking/info/{chain_id}/{wallet_address}": {
+            "get": {
+                "description": "Get Staking By Account / 해당 지갑에 관련된 staking 정보를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GiantMammoth"
+                ],
+                "summary": "Get Staking By Account / *공용",
+                "operationId": "GetStakingByAccount",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지갑주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_staking_ValidatorByAccountData"
+                        }
+                    }
+                }
+            }
+        },
+        "/giant_mammoth/staking/list/{chain_id}": {
+            "get": {
+                "description": "Get Staking list / Gmmt staking 정보를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GiantMammoth"
+                ],
+                "summary": "Get Staking list / *공용",
+                "operationId": "GetStakingList",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_blockchain_gmmt_staking_Staking"
+                        }
+                    }
+                }
+            }
+        },
+        "/giant_mammoth/swap/list/{chain_id}": {
+            "get": {
+                "description": "Get Swap Pair List / 아이보리 스왑 pair list를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "GiantMammoth"
+                ],
+                "summary": "Get Swap Pair List / *공용",
+                "operationId": "GetSwapPairList",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_swap_Swap"
+                        }
+                    }
+                }
+            }
+        },
+        "/log/nft/activities/{wallet_address}": {
+            "get": {
+                "description": "GetByWallet / 해당 지갑에서 발생한 NFT 로그 기록 가져오는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Get NFTs by wallet / *공용",
+                "operationId": "LogGetNFTsByWallet",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "월렛주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "가져올 아이템 수 최대 100",
+                        "name": "take",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "건너뛸 아이템 수 (옵션) 기본 0",
+                        "name": "skip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_log_GetLogNFTsByWalletData"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "LogGetSearchNFTsByWallet / 해당 지갑에서 발생한 NFT 로그 날짜, 종류에 따라 가져오는 API / *공용(gmwallet, edem)",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Log"
+                ],
+                "summary": "Get NFT logs by wallet / *공용",
+                "operationId": "LogGetSearchNFTsByWallet",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "월렛주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "Request body",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_core_domain_log.GetSearchByWalletInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_log_GetLogNFTsByWalletData"
+                        }
+                    }
+                }
+            }
+        },
+        "/nft/detail/{hash}/{token_id}": {
+            "get": {
+                "description": "NftGetDetail / NFT 상세정보를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nft"
+                ],
+                "summary": "Get Nft Detail / *공용",
+                "operationId": "NftGetDetail",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "컨트랙트 주소",
+                        "name": "hash",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "토큰 아이디",
+                        "name": "token_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_nft_GetNFtDetailData"
+                        }
+                    }
+                }
+            }
+        },
+        "/nft/detail/{hash}/{token_id}/{wallet_address}": {
+            "get": {
+                "description": "NftGetDetailOfWallet / 지갑이 보유한 NFT 상세정보를 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nft"
+                ],
+                "summary": "Get Nft Detail of Wallet / *공용",
+                "operationId": "NftGetDetailOfWallet",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "컨트랙트 주소",
+                        "name": "hash",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "토큰 아이디",
+                        "name": "token_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지갑주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_nft_GetNFtDetailData"
+                        }
+                    }
+                }
+            }
+        },
+        "/nft/{wallet_address}": {
+            "get": {
+                "description": "NftGet / 월렛이 보유한 NFT들을 반환하는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Nft"
+                ],
+                "summary": "Get Nfts by wallet / *공용",
+                "operationId": "NftGet",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지갑주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 체인넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "가져올 아이템 수 최대 100",
+                        "name": "take",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "건너뛸 아이템 수 (옵션) 기본 0",
+                        "name": "skip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_nft_GetNftData"
+                        }
+                    }
+                }
+            }
+        },
+        "/transaction": {
+            "post": {
+                "description": "GetTransaction / 해당 지갑에서 코인/토큰 전송내역 가져오는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "get coin, token transactions / *공용",
+                "operationId": "GetTransaction",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "Request body",
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_core_domain_transaction.GetTransactionInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_transaction_GetTransactionData"
+                        }
+                    }
+                }
+            }
+        },
+        "/transaction/recent/{wallet_address}": {
+            "get": {
+                "description": "GetAllTransaction / 해당 지갑에서 코인/토큰 최근 전송내역 가져오는 API / *공용",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Transaction"
+                ],
+                "summary": "get coin,token recent transactions / *공용",
+                "operationId": "GetAllTransaction",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "x api key",
+                        "name": "X-Api-Key",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "지갑주소",
+                        "name": "wallet_address",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "블록체인 넘버",
+                        "name": "chain_id",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "가져올 아이템 수 최대 100",
+                        "name": "take",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "description": "건너뛸 아이템 수 (옵션) 기본 0",
+                        "name": "skip",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_transaction_GetTransactionData"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_staking_ValidatorByAccountData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_blockchain_gmmt_staking.ValidatorByAccountData"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_blockchain_gmmt_swap_Swap": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_blockchain_gmmt_swap.Swap"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_chain_Chain": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_chain.Chain"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_contract_GetContractWalletNFTsByCollectionData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_contract.GetContractWalletNFTsByCollectionData"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_log_GetLogNFTsByWalletData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_log.GetLogNFTsByWalletData"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_nft_GetNftData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_nft.GetNftData"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-array_blockscan-go_internal_core_domain_transaction_GetTransactionData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_transaction.GetTransactionData"
+                    }
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_blockchain_gmmt_staking_Staking": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_blockchain_gmmt_staking.Staking"
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_chain_Chain": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_domain_chain.Chain"
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_contract_GetContractCollectionNFTsForWalletData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_domain_contract.GetContractCollectionNFTsForWalletData"
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_crypto_currency_GetCryptoCurrencyData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_domain_crypto_currency.GetCryptoCurrencyData"
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_adapter_http_response.ApiResponseSwagger-blockscan-go_internal_core_domain_nft_GetNFtDetailData": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_domain_nft.GetNFtDetailData"
+                },
+                "error": {
+                    "type": "string"
+                },
+                "message": {
+                    "$ref": "#/definitions/blockscan-go_internal_core_common_utils.ErrorType"
+                }
+            }
+        },
+        "blockscan-go_internal_core_blockchain_gmmt_staking.Staking": {
+            "type": "object",
+            "properties": {
+                "apr": {
+                    "type": "string"
+                },
+                "bonded_coin": {
+                    "type": "string"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_blockchain_gmmt_staking.Validator"
+                    }
+                }
+            }
+        },
+        "blockscan-go_internal_core_blockchain_gmmt_staking.Validator": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "changed_at": {
+                    "type": "integer"
+                },
+                "claimed_at": {
+                    "type": "integer"
+                },
+                "commission_rate": {
+                    "type": "integer"
+                },
+                "jailed_before": {
+                    "type": "integer"
+                },
+                "slashes_count": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "total_delegated": {
+                    "type": "string"
+                },
+                "total_rewards": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_blockchain_gmmt_staking.ValidatorByAccountData": {
+            "type": "object",
+            "properties": {
+                "claimable_asset": {
+                    "type": "string"
+                },
+                "commission_rate": {
+                    "type": "integer"
+                },
+                "delegation": {
+                    "type": "string"
+                },
+                "jailed_before": {
+                    "type": "integer"
+                },
+                "owner_address": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "pending_asset": {
+                    "type": "string"
+                },
+                "slashes_count": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "total_delegated": {
+                    "type": "string"
+                },
+                "validator_address": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "blockscan-go_internal_core_blockchain_gmmt_swap.Swap": {
+            "type": "object",
+            "properties": {
+                "index": {
+                    "type": "integer"
+                },
+                "liquidity": {
+                    "type": "string"
+                },
+                "pair_address": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "size_up": {
+                    "type": "boolean"
+                },
+                "token_0_address": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "token_0_decimals": {
+                    "type": "integer"
+                },
+                "token_0_get_reserves": {
+                    "type": "string"
+                },
+                "token_0_name": {
+                    "type": "string"
+                },
+                "token_0_symbol": {
+                    "type": "string"
+                },
+                "token_1_address": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "token_1_decimals": {
+                    "type": "integer"
+                },
+                "token_1_get_reserves": {
+                    "type": "string"
+                },
+                "token_1_name": {
+                    "type": "string"
+                },
+                "token_1_symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_common_utils.ErrorType": {
+            "type": "string",
+            "enum": [
+                "No data found",
+                "Syntax",
+                "Duplicate",
+                "Invalid sql statement",
+                "Bad connection",
+                "Invalid character",
+                "Foreign key",
+                "Check violation",
+                "Success",
+                "Fail",
+                "Not found",
+                "Invalid input",
+                "Database",
+                "Internal"
+            ],
+            "x-enum-varnames": [
+                "NoDataFound",
+                "SyntaxError",
+                "DuplicateError",
+                "InvalidSQLStatementError",
+                "BadConnectionError",
+                "JsonParseError",
+                "ForeignKeyError",
+                "CheckViolationError",
+                "Success",
+                "Fail",
+                "NotFound",
+                "InvalidInput",
+                "DatabaseError",
+                "InternalError"
+            ]
+        },
+        "blockscan-go_internal_core_domain_chain.Chain": {
+            "type": "object",
+            "properties": {
+                "chain_id": {
+                    "type": "integer"
+                },
+                "contract_address": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "image_url": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "scan_site": {
+                    "type": "string"
+                },
+                "site": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_contract.ErcList": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "aws_image_url": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "image_url": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "token_id": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_contract.GetContractCollectionNFTsForWalletData": {
+            "type": "object",
+            "properties": {
+                "aws_banner_image": {
+                    "type": "string"
+                },
+                "aws_logo_image": {
+                    "type": "string"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "erc_list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_contract.ErcList"
+                    }
+                },
+                "erc_type": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "wallet_address": {
+                    "type": "string"
+                },
+                "wallet_nickname": {
+                    "type": "string"
+                },
+                "wallet_profile": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_contract.GetContractWalletNFTsByCollectionData": {
+            "type": "object",
+            "properties": {
+                "aws_banner_image": {
+                    "type": "string"
+                },
+                "aws_logo_image": {
+                    "type": "string"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "erc_list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_contract.ErcList"
+                    }
+                },
+                "erc_type": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "tokens_amount": {
+                    "type": "string"
+                },
+                "unique_tokens_count": {
+                    "type": "string"
+                },
+                "wallet_address": {
+                    "type": "string"
+                },
+                "wallet_nickname": {
+                    "type": "string"
+                },
+                "wallet_profile": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_crypto_currency.GetCryptoCurrencyData": {
+            "type": "object",
+            "properties": {
+                "bnb_price": {
+                    "type": "string"
+                },
+                "eth_price": {
+                    "type": "string"
+                },
+                "gmmt_price": {
+                    "type": "string"
+                },
+                "matic_price": {
+                    "type": "string"
+                },
+                "mmt_price": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_log.GetLogNFTsByWalletData": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "block_hash": {
+                    "type": "string"
+                },
+                "block_number": {
+                    "type": "string"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "dapp": {
+                    "type": "string"
+                },
+                "erc1155_token_id": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "erc1155_url": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "erc1155_value": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "from_address": {
+                    "type": "string"
+                },
+                "function": {
+                    "type": "string"
+                },
+                "gas": {
+                    "type": "string"
+                },
+                "gas_price": {
+                    "type": "string"
+                },
+                "gas_used": {
+                    "type": "string"
+                },
+                "market_info_array": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_log.MarketInfo"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "nft_volume_array": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_log.NftVolumeData"
+                    }
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "to_address": {
+                    "type": "string"
+                },
+                "token_id": {
+                    "type": "string"
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "trade_nft_volume": {
+                    "type": "string"
+                },
+                "trade_nft_volume_contract": {
+                    "type": "string"
+                },
+                "trade_nft_volume_symbol": {
+                    "type": "string"
+                },
+                "transaction_hash": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "integer"
+                },
+                "url": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_log.GetSearchByWalletInput": {
+            "type": "object",
+            "required": [
+                "chain_id",
+                "date",
+                "take",
+                "type",
+                "walletAddress"
+            ],
+            "properties": {
+                "chain_id": {
+                    "type": "integer"
+                },
+                "date": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "7D",
+                        "30D",
+                        "1Y"
+                    ]
+                },
+                "skip": {
+                    "type": "integer"
+                },
+                "take": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "all",
+                        "mint",
+                        "transfer",
+                        "sale",
+                        "burn"
+                    ]
+                },
+                "walletAddress": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_log.MarketInfo": {
+            "type": "object",
+            "properties": {
+                "buyer": {
+                    "type": "string"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "collection": {
+                    "type": "string"
+                },
+                "seller": {
+                    "type": "string"
+                },
+                "transaction_hash": {
+                    "type": "string"
+                },
+                "volume": {
+                    "type": "string"
+                },
+                "volume_contract_address": {
+                    "type": "string"
+                },
+                "volume_symbol": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_log.NftVolumeData": {
+            "type": "object",
+            "properties": {
+                "chain_id": {
+                    "type": "integer"
+                },
+                "contract": {
+                    "type": "string"
+                },
+                "event": {
+                    "type": "string"
+                },
+                "from_address": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "to_address": {
+                    "type": "string"
+                },
+                "transaction_hash": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_nft.Attributes": {
+            "type": "object",
+            "properties": {
+                "trait_type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_nft.AttributesPercent": {
+            "type": "object",
+            "properties": {
+                "percentage": {
+                    "type": "number"
+                },
+                "specific_count": {
+                    "type": "integer"
+                },
+                "total_count": {
+                    "type": "integer"
+                },
+                "trait_type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_nft.GetNFtDetailData": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "attributes_array": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_nft.AttributesPercent"
+                    }
+                },
+                "aws_banner_image": {
+                    "type": "string"
+                },
+                "aws_logo_image": {
+                    "type": "string"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "contract_description": {
+                    "type": "string"
+                },
+                "contract_hash": {
+                    "type": "string"
+                },
+                "contract_id": {
+                    "type": "integer"
+                },
+                "contract_name": {
+                    "type": "string"
+                },
+                "contract_symbol": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "image_url": {
+                    "type": "string"
+                },
+                "nft_description": {
+                    "type": "string"
+                },
+                "nft_name": {
+                    "type": "string"
+                },
+                "token_id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_nft.GetNftData": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "attributes_array": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/blockscan-go_internal_core_domain_nft.Attributes"
+                    }
+                },
+                "aws_banner_image": {
+                    "type": "string"
+                },
+                "aws_logo_image": {
+                    "type": "string"
+                },
+                "chain_id": {
+                    "type": "integer"
+                },
+                "contract_description": {
+                    "type": "string"
+                },
+                "contract_hash": {
+                    "type": "string"
+                },
+                "contract_id": {
+                    "type": "integer"
+                },
+                "contract_name": {
+                    "type": "string"
+                },
+                "contract_symbol": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "image_url": {
+                    "type": "string"
+                },
+                "nft_description": {
+                    "type": "string"
+                },
+                "nft_name": {
+                    "type": "string"
+                },
+                "token_id": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_transaction.GetTransactionData": {
+            "type": "object",
+            "properties": {
+                "chain_id": {
+                    "type": "integer"
+                },
+                "contract_address": {
+                    "type": "string"
+                },
+                "decimals": {
+                    "type": "string"
+                },
+                "from": {
+                    "type": "string"
+                },
+                "gas": {
+                    "type": "string"
+                },
+                "gas_price": {
+                    "type": "string"
+                },
+                "gas_used": {
+                    "type": "string"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "info": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "symbol": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "integer"
+                },
+                "to": {
+                    "type": "string"
+                },
+                "transaction_fee": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "blockscan-go_internal_core_domain_transaction.GetTransactionInput": {
+            "type": "object",
+            "required": [
+                "chain_id",
+                "wallet_address"
+            ],
+            "properties": {
+                "chain_id": {
+                    "type": "integer"
+                },
+                "chain_type": {
+                    "type": "string",
+                    "enum": [
+                        "coin",
+                        "token"
+                    ]
+                },
+                "contract_address": {
+                    "type": "string"
+                },
+                "order_by": {
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ]
+                },
+                "skip": {
+                    "type": "integer"
+                },
+                "take": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "send",
+                        "received"
+                    ]
+                },
+                "wallet_address": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

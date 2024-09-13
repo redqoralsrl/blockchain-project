@@ -1,0 +1,1 @@
+nohup ./active.sh > output.log 2>&1 &

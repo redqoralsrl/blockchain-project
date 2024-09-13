@@ -1,0 +1,5 @@
+root = "../"
+#[build]
+#cmd = "go build -o ../build/main ./main.go" # 빌드 커맨드
+#bin = "../build/main" # 바이너리 실행 커맨드
+exclude_dir = ["data"] # watch 대상에서 제외할 파일 디렉토리

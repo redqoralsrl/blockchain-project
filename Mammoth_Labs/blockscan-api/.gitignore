@@ -1,0 +1,17 @@
+.idea
+.vscode
+#*.exe
+#*.exe~
+#*.dll
+#*.so
+#*.dylib
+#*.test
+#*.out
+#go.work
+/data/
+/tmp/
+/.idea/
+/cmd/tmp/
+.env*
+.env
+.DS_Store
